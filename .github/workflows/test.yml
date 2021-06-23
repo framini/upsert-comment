@@ -1,0 +1,29 @@
+name: 'build-test'
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          npm install
+      - run: |
+          npm run all
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        with:
+          title: 'Vestibulum cras ex nec neque'
+          body: |
+            **Bibendum:** Quis mi iaculis sed
+            ## Vehicula torquent lacinia
+            - Accumsan venenatis dignissim ultrices tortor :sparkles:
+            - A tellus posuere sit facilisis vulputate
+            - Fringilla ac ultricies blandit

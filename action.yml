@@ -1,0 +1,17 @@
+name: 'Upserts (Update/Create) a Comment'
+description: 'This action will update or create a comment in a Pull Request using the specified input'
+author: 'Francisco Ramini <framini@gmail.com>'
+inputs:
+  token:
+    required: false
+    description: 'Token for instantiating the GitHub Rest client. default: GITHUB_TOKEN'
+    default: ${{ github.token }}
+  title:
+    required: true
+    description: "The comment’s title."
+  body:
+    required: true
+    description: "Main content for the comment."
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
