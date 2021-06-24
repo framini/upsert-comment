@@ -3,7 +3,6 @@ import * as core from "@actions/core";
 import { stripIndents } from "common-tags";
 import * as github from "@actions/github";
 
-
 async function run(): Promise<void> {
   try {
     const inputs = {
@@ -12,7 +11,7 @@ async function run(): Promise<void> {
       body: core.getInput("body", { required: true }),
     };
     core.debug(`Inputs: ${inspect(inputs)}`);
-    
+
     const octokit = github.getOctokit(inputs.token).rest;
     const context = github.context;
 
